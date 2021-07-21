@@ -7,6 +7,7 @@ from datetime import datetime
 import PySimpleGUI as sg
 import shutil
 
+
 def find_ms():
     if os.path.isfile("C://Program Files (x86)//Microsoft Office//Office16//MSACCESS.EXE"):
         window['-MSAC-'].update("C:\Program Files (x86)\Microsoft Office\Office16\MSACCESS.EXE")
@@ -142,8 +143,6 @@ COPY DEF
 
 
 def copy_files():
-
-
 
     try:
         mta_xp = r'C:\rs\rs_mta_XP.accdb'

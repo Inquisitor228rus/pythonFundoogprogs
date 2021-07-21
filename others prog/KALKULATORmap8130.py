@@ -1,10 +1,6 @@
 import PySimpleGUI as sg
 import configparser
 import os.path
-from pathlib import Path
-import zipfile
-from datetime import datetime
-import shutil
 
 SYMBOL_UP =    '▲'
 SYMBOL_DOWN =  '▼'
