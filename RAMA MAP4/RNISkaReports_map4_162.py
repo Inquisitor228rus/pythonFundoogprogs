@@ -850,7 +850,7 @@ layout: list = [[sg.Menu(menu_layout)],
                 [sg.Quit('Выход', font=('Consolas', textSi), auto_size_button=True, size=(35, 3), pad=((1, 1), 100))]]
 
 # титульное окно
-window = sg.Window(testWindows, layout, size=(1000, 720), icon="img/icon.ico", element_justification='c')
+window = sg.Window(testWindows, layout, size=(1000, 720), icon=r"img/icon.ico", element_justification='c')
 progress_bar = window.FindElement('progress')
 
 # белый список
