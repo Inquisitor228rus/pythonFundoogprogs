@@ -4,10 +4,8 @@ import shutil
 import tempfile
 import time
 from datetime import date
-
 import PySimpleGUI as sg
 import easygui
-import imwatchingyou
 import openpyxl
 import win32com.client as win32
 from openpyxl.styles import Alignment, Font
@@ -765,7 +763,6 @@ def button98():
 
 
 def about_me():
-    #sg.PopupQuick('"Все великое начинается с малого." - Peter Senge', auto_close=False)
 
     my_text = "\nПрограмма написана саня).\n" \
               "\nДата последнего редактирования: 20.07.2021" \
@@ -779,8 +776,8 @@ def about_me():
 
     sg.popup('О программе', 'Добро пожаловать в программу РНИСка Отчеты!', my_text)
 
+
 def howto():
-    #sg.PopupQuick('"Все великое начинается с малого." - Peter Senge', auto_close=False)
 
     my_text = "\nДля успешной работы необходимо сконвертировать отчет из рнис" \
               '\nВ РНИСе он должен называться как "Итоговый отчет о работе выходов по филиалу (общие показатели)"' \
@@ -795,32 +792,23 @@ def howto():
               '\nФайл отчетов можете как до так и после конвертации произвольно называть и изменять.'
     sg.popup('Инструкция для программы', 'Добро пожаловать в программу РНИСка Отчеты!', my_text)
 
-def button99():
-    imwatchingyou.show_debugger_window()
-
 
 # кнопочки для проверки белого списка
 dispatch_dictionary = { 'Егорьевск':button1, 'Раменское':button2, 'Шатура':button3, 'МАП4':button4, 'Конверт':button98,
-                       'О программе':about_me, 'Инструкция':howto, 'debugHigh':button99 }
+                       'О программе':about_me, 'Инструкция':howto }
 
 menu_layout: list = [['RNISka Reports', ['Выход']],
                      ['Окно', ['О программе', 'debugHigh', 'debugLight']],
                      ['Справка', ['Инструкция']]]
 # кнопки для конкретно гуи
 
-#sg.Window.get_screen_size()
-#w, h = sg.Window.get_screen_size()
-#getResW = int(w / 2 + (w / 20))
-#getResH = int((w + h) / 4)
-#buttonRes = int()
-#WIN_H = int(getResH / 714 + 1)
-#WIN_W = int(getResW / 44 + 1)
-#textSi = int((getResW * getResH) / 49152)
+
 textSi = 12
 WIN_W: int = 12
 WIN_H: int = 3
 defDownFold = os.path.expanduser(r"~\Downloads")
 getItdef = defDownFold.replace("\\", "/")
+
 layout: list = [[sg.Menu(menu_layout)],
                 [sg.ProgressBar(1, orientation='h', size=(120, 20), key='progress', pad=((1, 1), 1))],
                 [sg.Text('Добро пожаловать!', relief='sunken', auto_size_text=True, justification='center',
@@ -857,20 +845,13 @@ progress_bar = window.FindElement('progress')
 while True:
     # ифелс
     event, value = window.read()
-    #print(event, value)
-    #if event in ('Выход', sg.WIN_CLOSED):
-     #   window.close(); del window
+#    print(event, value)
+
     if event in (about_me, 'n:78'):
         about_me()
 
-    #if event == 'FolderBrowse':
-     #   foldername = sg.PopupGetFolder('Select folder', no_window=True)
-
-
-
     elif event in ('Выход', sg.WIN_CLOSED):  # Window close button event
         break
-    #imwatchingyou.refresh_debugger()
 
     # белый список в действии
 
@@ -881,8 +862,3 @@ while True:
         sg.Print('функции "{}" не существует в данной версии'.format(event))
 
 window.close()
-
-
-#window.close()
-#del window
-
